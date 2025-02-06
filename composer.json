@@ -1,0 +1,26 @@
+{
+    "name": "loopwork/installer",
+    "description": "Suitable for those of you who are learning or just trying out",
+    "type": "library",
+    "license": "MIT",
+    "version": "1",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Loopwork\\Installer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Entrolopy Projects"
+        }
+    ],
+    "require": {
+        "php": ">=8.3"
+    },
+    "bin": ["bin/loopwork"],
+    "scripts": {
+        "setup": "Loopwork\\Installer\\Setup::setup",
+        "run": "Loopwork\\Installer\\Installer::run"
+    }
+}
