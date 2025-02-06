@@ -20,9 +20,9 @@ echo "\033[" . 33 . "m" . "
 
                         Simplified Library
 Suitable for those of you who are learning or want to try simple routing
-                             VERSION 1  
+                             VERSION 1.0  
 
-                             
+
 " . "\033[0m";
 
         $setupFolder = readline("Project Names: ");
