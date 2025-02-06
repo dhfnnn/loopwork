@@ -14,45 +14,48 @@ class Installer
             return;
         }
 
+        echo "Creating index.php\n";
+
         // Salin index.php
         if (!file_exists($templateDir . '/index.php')) {
-            echo "Template index.php not found in: $templateDir\n";
+            echo "index.php is not available in: $templateDir\n";
             return;
         }
 
         if (!copy($templateDir . '/index.php', $targetDir . '/index.php')) {
-            echo "Failed to copy index.php\n";
+            echo "Failed to Create index.php\n\n";
         } else {
-            echo "index.php copied successfully\n";
+            echo "index.php Successful\n\n";
         }
 
+        echo "Creating .env\n";
         // Salin .env
         if (!file_exists($templateDir . '/.env')) {
-            echo "Template .env not found in: $templateDir\n";
+            echo ".env is not available in: $templateDir\n";
             return;
         }
 
         if (!copy($templateDir . '/.env', $targetDir . '/.env')) {
-            echo "Failed to copy .env\n";
+            echo "Failed to Create .env\n\n";
         } else {
-            echo ".env copied successfully\n";
+            echo ".env Successful\n\n";
         }
 
-
+        echo "Creating a Utility Folder\n";
         // Salin folder utility
         $hpss = __DIR__ . 'utility';
         $utilitySource = str_replace("src", "", $hpss);
         $utilityDestination = $targetDir . '/utility'; // Folder tujuan
 
         if (!self::copyFolder($utilitySource, $utilityDestination)) {
-            echo "Failed to copy utility folder\n";
+            echo "Failed to Create Utility Folder\n\n";
         } else {
-            echo "Utility folder copied successfully\n";
+            echo "Utility Folder Successful\n\n";
         }
 
-        echo "\n\nInstallation complete!\n\n";
+        echo "Installation Loopwork complete!\n\n";
 
-        $runmanual = readline("Run Server? y/n");
+        $runmanual = readline("Run Server? y/n: ");
         if($runmanual == "y"){
             $port = readline("Port? [1828]: ");
             if(isset($port)){
@@ -61,6 +64,9 @@ class Installer
             else{
                 exec("php -S localhost:1828");
             }
+        }
+        else{
+            echo "";
         }
     }
 
