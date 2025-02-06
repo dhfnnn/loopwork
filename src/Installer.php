@@ -51,6 +51,17 @@ class Installer
         }
 
         echo "\n\nInstallation complete!\n\n";
+
+        $runmanual = readline("Run Server? y/n");
+        if($runmanual == "y"){
+            $port = readline("Port? [1828]: ");
+            if(isset($port)){
+                exec("php -S localhost:".(int)$port);
+            }
+            else{
+                exec("php -S localhost:1828");
+            }
+        }
     }
 
     /**
